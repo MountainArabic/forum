@@ -1,0 +1,9 @@
+<h2>{{ article.title }}</h2>
+<p>{{ article.content }}</p>
+<p><i>Автор: {{ article.author.username }}</i></p>
+
+{% if user == article.author %}
+  <a href="{% url 'article_edit' article.pk %}">Редактировать</a>
+  <a href="{% url 'article_delete' article.pk %}">Удалить</a>
+{% endif %}
+<a href="{% url 'article_list' %}">Назад</a>
