@@ -1,8 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Регистрация</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f7;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 500px;
+        margin: auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+    form p {
+        margin-bottom: 15px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+    button {
+        width: 100%;
+        padding: 10px 18px;
+        background: #2962ff;
+        border: none;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    button:hover {
+        background: #0039cb;
+    }
+    .bottom-text {
+        text-align: center;
+        margin-top: 15px;
+        color: #444;
+    }
+    .bottom-text a {
+        color: #2962ff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .bottom-text a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
 <h2>Регистрация</h2>
+
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Зарегистрироваться</button>
 </form>
 
-<p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+<p class="bottom-text">
+  Уже есть аккаунт?
+  <a href="{% url 'login' %}">Войти</a>
+</p>
+
+</div>
+</body>
+</html>

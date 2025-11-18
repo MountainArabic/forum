@@ -1,9 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>{{ article.title }}</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f7;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    h2 { margin-top: 0; }
+    .author {
+        color: #555;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    a.button {
+        padding: 8px 14px;
+        border-radius: 8px;
+        background: #2962ff;
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block;
+    }
+    a.button:hover {
+        background: #0039cb;
+    }
+    a.back {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #2962ff;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
 <h2>{{ article.title }}</h2>
+
 <p>{{ article.content }}</p>
-<p><i>Автор: {{ article.author.username }}</i></p>
+
+<p class="author">Автор: {{ article.author.username }}</p>
 
 {% if user == article.author %}
-  <a href="{% url 'article_edit' article.pk %}">Редактировать</a>
-  <a href="{% url 'article_delete' article.pk %}">Удалить</a>
+  <a class="button" href="{% url 'article_edit' article.pk %}">Редактировать</a>
+  <a class="button" href="{% url 'article_delete' article.pk %}">Удалить</a>
 {% endif %}
-<a href="{% url 'article_list' %}">Назад</a>
+
+<br>
+<a class="back" href="{% url 'article_list' %}">← Назад</a>
+
+</div>
+</body>
+</html>
